@@ -1,0 +1,19 @@
+{
+    "name": "heappy",
+    "version": "0.1.0",
+    "author": "gand3lf",
+    "description": "Heappy: an heap editor",
+    "main": "launch.js",
+    "scripts": {
+        "start": "electron --no-sandbox ."
+    },
+    "devDependencies": {
+        "electron": "^11.2.3",
+        "electron-packager": "^15.2.0"
+    },
+    "dependencies": {
+        "lodash": "^4.17.21",
+        "nocache": "^2.1.0",
+        "websocket": "^1.0.33"
+    }
+}

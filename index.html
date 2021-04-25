@@ -1,0 +1,98 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/mystyle.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+
+      function changestyle(){
+        if(document.documentElement.className == "theme-dark")
+          document.documentElement.className = "theme-light";
+        else document.documentElement.className = "theme-dark";
+      }
+      changestyle();
+    </script>
+
+  </head>
+  <body>
+    <div>
+      <!--<h3 class="title" align="center">- H E A P P Y -</h3> -->
+    </div>
+
+    <div id="app">
+      <div class="navbar">
+        <button class="topButton title" onclick="/">HEAPPY</button>
+        <button class="topButton" onclick="changestyle()">change theme</button>
+        <button class="topButton" @click="changeZoom(7)">zoom in</button>
+        <button class="topButton" @click="changeZoom(-7)">zoom out</button>
+        <button class="topButton" @click="clean()">clean</button>
+        <button class="topButton exit" onclick="window.top.close(); return false">exit</button>
+      </div>
+      <br>
+      <div v-if="heaps.length != 0">
+
+          <table class="maintab" id="mainTable" @wheel.prevent="handleScroll($event)" v-bind:width="400" v-bind:height="220">
+
+            <thead class="maintab head">
+              <tr>
+                
+                <th>
+                  &nbsp<button class="plusmin" id="snap" @click="changeRows(-1)">&#8743;</button>
+                  A d d r e s s
+                  <button class="plusmin" id="snap" @click="changeRows(1)">&#8744;</button>&nbsp
+                </th>
+                <th v-for="(x, id) in heaps" v-on:keyup="arrowHandler(id, $event)">
+                  <select class="selecthead" v-bind:id="'searchType:'+id">
+                    <option value="h">h</option>
+                    <option value="d">d</option>
+                    <option value="s">s</option>
+                  </select>
+
+                  <input type="value" class="input value head" maxlength="18" size="15" v-bind:placeholder="'Search in snap ' + id + ' ...'" v-on:keyup="searchChanged(id, $event)" >
+                  
+                  <button v-if="id<chunks.length-1" class="buttonhead" @click="deleteSnap(id, $event)">x</button>
+                  <span v-else>
+                  <button class="buttonhead" @click="takeSnapshot">&#8615;</button>
+                  <button class="buttonhead" @click="updateSnapshot">&#8635;</button>
+                  </span>
+                </th>
+                <th>&nbsp F i e l d &nbsp</th>
+                <th>C o m m e n t</th>
+              </tr>
+            </thead>
+            <tbody class="maintab body">
+              <tr v-for="elems in idMaker()">
+                <td class="addresses">{{elems[0].address}}</td>
+
+                <td v-for="elem in elems" :key="updateRows+elem.id">
+                    <div class="valuetable">
+                      <span><button class="myButton" v-bind:id="'b:'+elem.address" v-bind:heapid="elem.id" @click="changeRepr">{{elem.repr}}</button></span>
+                      <span v-bind:id="elem.address"><input class="input value body" v-bind:heapid="elem.id" v-bind:highlight="elem.isChanged" v-bind:value="elem.value" @change="valueChanged" spellcheck="false" :readonly="elem.readonly"></span>
+                      <span v-bind:style="{ 'background' : elem.color }"><abbr v-bind:data-title="elem.type">&nbsp&nbsp</abbr></span>
+                  </div>
+                </td>
+                <td class="fields">{{elems[elems.length-1].field}}</td>
+                <td v-bind:id="elems[0].address"><input class="input comment" v-bind:value="elems[0].comment" @change="commentChanged" spellcheck="false"></td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <canvas class="myCanvas" v-if="chunks.length != 0" id="colorBar" width="700" height="50"
+          style="border:1px solid #d3d3d3;" @mousedown="canvasClick">
+            Your browser does not support the canvas element.
+          </canvas>
+          <h5 class="logBins">| tcache: {{sumBins.tcache}} | fast: {{sumBins.fast}} | small: {{sumBins.small}} | large: {{sumBins.large}} | unsorted: {{sumBins.unsorted}} | allocated: {{sumBins.allocated}} |</h5>
+        
+      </div>
+      <div v-else>
+        <h4 align="center">xX No data available Xx</h4>
+        <button id="snap" @click="updateSnapshot">Take an heap snapshot!</button>
+      </div>
+   
+       
+    </div>
+
+
+    <script src="main.js"></script>
+
+  </body>
+</html>

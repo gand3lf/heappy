@@ -1,0 +1,7 @@
+{
+  "small":["prev_size", "size", "fd", "bk"],
+  "large":["prev_size", "size", "fd", "bk", "fd_nextsize", "bk_nextsize"],
+  "unsorted":["prev_size", "size", "fd", "bk"],
+  "fast":["prev_size", "size", "fd"],
+  "tcache":["next", "key"]
+}
