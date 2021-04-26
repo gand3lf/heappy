@@ -3,7 +3,7 @@ This is an editor based on gdb/gef that helps you to handle the heap during your
 The project should be considered a didactic tool useful to understand the evolution of the heap during the process life cycle. It has been created to simplify the study of the most common heap exploitation techniques and to help solve some binary exploitation CTFs related to this topic.
 
 <p align="center">
-<img align="center" src="https://i.imgur.com/uqBI9kr.png" width="700">
+<img align="center" src="https://i.imgur.com/hmP3lzg.png" width="700">
 </p>
 
 
