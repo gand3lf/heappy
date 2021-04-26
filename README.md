@@ -21,12 +21,22 @@ wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
 ### Installing
 
-Download _heappy.py_ and _heappy-gui_x64_ from the release section.
-From GDB:
+Install Node.js and npm:
 ```
-gef➤ source /my/path/heappy.py
+apt update
+sudo apt install nodejs npm
 ```
-It is suggested to run the heappy gui after that the heap of the target process has been initialized.
+Download and install Heappy:
+```
+git clone https://github.com/gand3lf/heappy
+cd heappy/
+npm install
+```
+Load the server inside GDB:
+```
+gef➤ source /my/path/heappy/server/heappy.py
+```
+It is suggested to run the Heappy GUI after that the target heap has been initialized.  
 For example:
 ```
 gef➤ break main
@@ -34,10 +44,11 @@ gef➤ run
 ```
 From another terminal launch the GUI:
 ```
-./heappy-gui_x64
+cd /my/path/heappy/
+npm start
 ```
 
-Have fun!
+Have fun! :rocket:
 
 ## Some features
 
