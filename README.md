@@ -1,15 +1,23 @@
 #  	:slightly_smiling_face: Heappy: an happy heap editor
-This is an editor based on gdb/gef that helps you to handle the heap during your exploitation development.  
-The project should be considered a didactic tool useful to understand the evolution of the heap during the process life cycle. It has been created to simplify the study of the most common heap exploitation techniques and to help solve some binary exploitation CTFs related to this topic.
+Heappy is an editor based on gdb/gef that helps you to handle the heap during your exploitation development.  
+The project should be considered a didactic tool useful to understand the evolution of the heap during the process life cycle. It has been created to simplify the study of the most common heap exploitation techniques and to support you to solve some binary exploitation CTFs related to this fantastic topic.
 
 <p align="center">
 <img align="center" src="https://i.imgur.com/hmP3lzg.png" width="700">
 </p>
 
+## Main features
+This is what Heappy implements:  
+&nbsp;&nbsp; :white_check_mark: take heap snapshots and compare them each other  
+&nbsp;&nbsp; :white_check_mark: recognize immediately type and fields of heap bins  
+&nbsp;&nbsp; :white_check_mark: search and edit heap values by decimal, hex or string  
+&nbsp;&nbsp; :white_check_mark: find yourself with the panoramic view of the heap status  
+&nbsp;&nbsp; :white_check_mark: take notes about a cell in the comment column  
+&nbsp;&nbsp; :white_check_mark: enjoy the light and dark mode  
 
 ## Getting Started
 
-These instructions will help you to install and run heappy fastly.
+These instructions will help you to install and run Heappy fastly.
 
 ### Prerequisites
 
@@ -49,19 +57,6 @@ npm start
 ```
 
 Have fun! :rocket:
-
-## Some features
-
-:white_check_mark: panoramic view of the heap status  
-:white_check_mark: heap snapshots to compare each other  
-:white_check_mark: highlight differences from snapshots  
-:white_check_mark: categorization of bins (small, fast, ...)  
-:white_check_mark: categorization of fields (size, fd, bk, ...)  
-:white_check_mark: search values by decimal, hex or string  
-:white_check_mark: visualization by decimal, hex or string  
-:white_check_mark: editing of values as decimal, hex or string  
-:white_check_mark: comment section to take note during the analysis  
-:white_check_mark: light and dark mode
 
 ## Not yet implemented
 :black_square_button: multiple heaps support  
