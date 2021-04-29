@@ -7,9 +7,6 @@ class GuiServer extends WebSocket {
       this.onopen = this.onOpen
       this.onmessage = this.onMessage
 
-      //this.context.heaps = heaps
-      //this.context.chunks = chunks
-
     }
     onOpen(event){
       console.log('WebSocket Client Connected');

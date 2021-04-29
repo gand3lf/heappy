@@ -20,6 +20,7 @@
   --border-select: 1px solid #3B77B3;
   --color-logbins: #555;
 }
+
 .theme-dark {
   --background-color: #3e3f43;
   --color-title: white;
@@ -54,16 +55,11 @@ body {
   font-family: Calibri, sans-serif;
   background-color: var(--background-color);
 }
+
 .title{
   color: var(--color-title);
 }
 
-/* Bordi curvi*/
-/*.maintab.head th{
-    border-radius: 2px 2px 2px 2px;
-}*/
-
-/* Tabella centrata*/
 .maintab{
   white-space: nowrap;
   border-spacing: 0;
@@ -71,60 +67,61 @@ body {
   margin-right: auto;
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.28);
 }
+
 .maintab.head{
   font-family: Calibri, sans-serif;
   background: var(--bgcolor-maintab-head);
   color: var(--color--maintab-head);
 }
+
 .maintab.head th{
   min-width: 70px;
   height: 35px;
 }
-/* Address column width*/
+
 .maintab.head th:first-child{
   min-width: 140px;
 }
+
 .addresses{
-  /*background: #bbbbbb;*/
   text-align: center;
   color: var(--color-addresses);
   font-family: Verdana,Geneva,sans-serif;
   letter-spacing: 1px; 
   font-size: 15px;
 }
+
 .fields{
   color: var(--color-fields);
   font-style: italic;
 }
-/* Vertical separator border */
+
 .maintab.body td + td { 
   border-left:1px solid var(--color-border-vertical); 
 }
 
-/* Color even and odd rows*/
 .maintab.body tr:nth-child(even) {
-  /*background: #414446;*/
   background: var(--color-even);
 }
+
 .maintab.body tr:nth-child(odd) {
   background: var(--color-odd);
 }
 
-/* Input value*/
 .valuetable{
 }
+
 .valuetable input{
   text-align: right;
   color: var(--color-valuetable);
   font: normal 14px/normal "Lucida Console", Monaco, monospace;
 }
-/* color input entry changed*/
+
 .valuetable input:nth-of-type(odd)[highlight=true]{
   background: var(--bgcolor-highlight);
   color: var(--color-highlight);
-  /*font-weight: bold;*/
 }
-/* Input comment*/
+
 .input.comment{
   display: inline-block;
   border: none;
@@ -134,6 +131,7 @@ body {
   width: 160px;
   outline: none;
 }
+
 .myButton{
   background: var(--grad-button);
   background-color:#ee4aa0;
@@ -146,9 +144,11 @@ body {
   font-size:13px;
   font-weight:bold;
 }
+
 abbr[data-title] {
   position: relative;
 }
+
 abbr[data-title]:hover::after,
 abbr[data-title]:focus::after {
   content: attr(data-title);
@@ -181,12 +181,13 @@ abbr[data-title]:focus::after {
   text-decoration:none;
   text-shadow:0px 1px 0px #b23e35;
   position: relative;
-  /*left: 3px;*/
 }
+
 .buttonhead:hover {
   background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
   background-color:#e4685d;
 }
+
 .buttonhead:active {
   position:relative;
   top:1px;
@@ -200,12 +201,15 @@ abbr[data-title]:focus::after {
   background: 
       linear-gradient(#000, #000) center bottom 0px /calc(100% - 0px) 1px no-repeat;
 }
+
 .input.value.head::placeholder { 
   color: var(--color-plcholder-head);
 }
+
 .input.value.head:focus {
     outline: none;
 }
+
 .input.value.body{
   border: none;
   background: rgba(0,0,0,0);
@@ -253,9 +257,11 @@ canvas{
   right: 0; 
   bottom: 0;
 }
+
 .help[data-title] {
   position: relative;
 }
+
 .help[help-text]:hover::after,
 .help[help-text]:focus::after {
   content: attr(help-text);
@@ -271,9 +277,11 @@ canvas{
   font-size: 14px;
   padding: 3px 5px;
 }
+
 .myCanvas{
   box-shadow: 0 1px 9px 1px rgba(0, 0, 0, 0.28);
 }
+
 .logBins{
   color: var(--color-logbins);
   text-align: center;
@@ -290,6 +298,7 @@ canvas{
   -webkit-app-region: drag;
   z-index: 10;
 }
+
 .topButton {
   background-color:#f7b600;
   display:inline-block;
@@ -303,22 +312,27 @@ canvas{
   border: none;
   -webkit-app-region: no-drag;
 }
+
 .topButton:hover {
   background-color:#f29d00;
 }
+
 .topButton:active {
   border-style: outset;
   border: none;
 }
+
 .topButton.exit{
   position: absolute;
   right:0;
   background-color: #cf2a45;
   color: white;
 }
+
 .topButton.exit:hover {
   background-color: #e42f4d;
 }
+
 .topButton.title{
   font-size:11px;
   font-family: "pressFont";

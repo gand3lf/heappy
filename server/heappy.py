@@ -49,7 +49,6 @@ class Heap():
             d["chunks"] = []
             for t in d["bins"]:
                     d["chunks"] += [k for k in d["bins"][t]]
-        # Convert to another representation
         dd = {}
         for addr in d["chunks"]:
             dd[addr] = "allocated"
@@ -133,9 +132,3 @@ def start_server():
 t = threading.Thread(target = start_server)
 t.daemon = True
 t.start()
-
-''' 
-TODO:
-1. Lancio della GUI
-2. Notificare al GUI Server lo stop
-'''
