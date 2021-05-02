@@ -1,4 +1,4 @@
-#  	:slightly_smiling_face: Heappy: an happy heap editor
+#  	:slightly_smiling_face: Heappy: a happy heap editor
 Heappy is an editor based on gdb/gef that helps you to handle the heap during your exploitation development.  
 The project should be considered a didactic tool useful to understand the evolution of the heap during the process life cycle. It has been created to simplify the study of the most common heap exploitation techniques and to support you to solve some binary exploitation CTFs related to this fantastic topic.
 
