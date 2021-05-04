@@ -11,17 +11,16 @@ GEF_PROMPT_OFF = "\001\033[1;31m\002{0:s}\001\033[0m\002".format(GEF_PROMPT)
 class Heap():
     def __init__(self, pid):
         self.pid = pid
-        with open("/proc/"+str(self.pid)+"/maps") as maps:
-            tmp = list(filter(lambda x: ("[heap]" in x), maps.readlines()))
-            tmp = [int(x,16) for x in tmp[0].split(' ')[0].split('-')]
-            self.bot, self.top = tmp[0], tmp[1]
-            self.__read()
+        vmmap = gdb.execute("vmmap", True, True).split("\n")[1:]
+        heap_map = list(filter(lambda x: ("[heap]" in x), vmmap))
+        tmp = [int(re.sub(r"\x1b\[\d*m", "", x),16) for x in heap_map[0].split(" ")[0:2]]
+        self.bot, self.top = tmp[0], tmp[1]
+        self.__read()
         self.data = self.__read()
     def __read(self):
-        with open("/proc/"+str(self.pid)+"/mem", "r+b", 0) as mem:
-            mem.seek(self.bot)
-            data = mem.read(self.top - self.bot)
-            return data
+        infer = gdb.inferiors()[0]
+        data = infer.read_memory(self.bot, self.top - self.bot)
+        return data
     def toDic(self):
         d = {}
         d["bot"] = self.bot
@@ -58,7 +57,6 @@ class Heap():
         return dd
     def __str__(self):
         return str(self.pid)
-
 
 class Snapper():
     def __init__(self, ws, client, type_):
