@@ -26,6 +26,7 @@ If you don't have it, install GEF in GDB:
 ```
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 ```
+<i>md5(gef.sh): eb053864d050048cb001c80c79fde7b5</i>
 
 ### Installing
 
@@ -59,6 +60,7 @@ npm start
 Have fun! :rocket:
 
 ## Not yet implemented
+:black_square_button: 32-bit addresses support (coming soon)  
 :black_square_button: multiple heaps support  
 :black_square_button: gdb checkpoint integration
 
